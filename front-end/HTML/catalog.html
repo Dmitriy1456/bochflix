@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../IMAGES/my_first.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../STYLES/reset.css">
+    <link rel="stylesheet" href="../STYLES/catalog.css">
+    <link rel="stylesheet" href="../STYLES/catalog-optimize.css">
+    <title>Каталог — BOCHFLIX</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__left">
+            <img src="../IMAGES/icons/arrow.svg" alt="aside-button" class="header__left-button icon-information">
+            <div class="header__left--title">
+                <img src="../IMAGES/icons/catalog_line.svg" alt="" class="header__left--icon">
+                <div id="category-title" class="category-title">Каталог</div>
+            </div>
+        </div>
+        <div class="header__right">
+            <div class="header__right-button">Вход</div>
+            <div class="header__right-profile">
+                <img src="../IMAGES/icons/account_line.svg" alt="header-right-img"
+                    class="header__right-img icon-information">
+            </div>
+        </div>
+        <div class="header--mobile">
+            <img src="../IMAGES/icons/arrow.svg" alt="aside-button" class="header__button--mobile icon-information">
+            <div class="header__left--title-mobile">
+                <img src="../IMAGES/icons/catalog_line.svg" alt="" class="header__left--icon-mobile">
+                <div id="category-title" class="category-title">Каталог</div>
+            </div>
+        </div>
+    </header>
+    <aside class="aside--mobile">
+        <div class="aside__main--mobile aside-item--mobile">
+            <img src="../IMAGES/icons/home_line.svg" alt="aside-icon" class="aside__icon--mobile">
+            <div class="aside__title--mobile">Главная</div>
+        </div>
+        <div class="aside__catalog--mobile aside-item--mobile">
+            <img src="../IMAGES/icons/catalog.svg" alt="aside-icon" class="aside__icon--mobile">
+            <div class="aside__title--mobile">Каталог</div>
+        </div>
+        <div class="aside__shorts--mobile aside-item--mobile">
+            <img src="../IMAGES/icons/shorts_line.svg" alt="aside-icon" class="aside__icon--mobile">
+            <div class="aside__title--mobile">Shorts</div>
+        </div>
+        <div class="aside__favorires--mobile aside-item--mobile">
+            <img src="../IMAGES/icons/favorites_line.svg" alt="aside-icon" class="aside__icon--mobile">
+            <div class="aside__title--mobile">Избранное</div>
+        </div>
+        <div class="aside__profile--mobile aside-item--mobile">
+            <img src="../IMAGES/icons/account_line.svg" alt="aside-icon" class="aside__icon--mobile">
+            <div class="aside__title--mobile">Профиль</div>
+        </div>
+    </aside>
+    <main class="main">
+        <!-- Режим 1: Общий каталог жанров -->
+        <section class="main__categories-view" id="categories-view">
+            <div class="main__track" id="categories-track">
+                <!-- Карточки жанров с иконками и spotlight-эффектом подгружаются динамически -->
+            </div>
+        </section>
+
+        <!-- Режим 2: Конкретный жанр (Сетка фильмов) -->
+        <section class="main__genre-view" id="genre-view" style="display: none;">
+            <div class="main__movies-grid" id="genre-movies-grid">
+                <!-- Адаптивная сетка фильмов выбранного жанра -->
+            </div>
+        </section>
+    </main>
+    <script src="../JS/catalog.js"></script>
+</body>
+
+</html>

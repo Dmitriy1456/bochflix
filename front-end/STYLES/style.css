@@ -1,0 +1,1074 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    color-scheme: dark;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: #000000;
+    font-family: 'Namu', sans-serif;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* wrapper --------------------------------- */
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.header-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    /* главное: не даёт контенту раздувать колонку */
+}
+
+/* aside-collapsed ------------------------- */
+
+.wrapper--aside-collapsed .aside {
+    transform: translateX(-100%);
+    margin-left: -300px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wrapper--aside-collapsed .header-main-wrapper .header {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: transform .3s .3s ease, opacity .3s .3s ease;
+}
+
+.wrapper--aside-collapsed .header-main-wrapper .main {
+    margin-top: 40px;
+    padding: 40px 40px 0 40px;
+    transition: margin-left .3s ease, margin-top .3s .3s ease, padding .3s ease;
+}
+
+/* header ----------------------------------- */
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    font-weight: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 1%;
+    z-index: 100;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: inset 0 55px 50px black;
+}
+
+.header.header--hidden {
+    transform: translateY(-100%) !important;
+    transition: transform .3s ease !important;
+}
+
+.header__left--mobile,
+.header__right--mobile {
+    display: none;
+}
+
+.header__center {
+    flex: 0 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.header__center-item {
+    cursor: pointer;
+    opacity: .75;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.header__left {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.header__left-button,
+.header__center-item-img {
+    width: 1.7rem;
+    height: 1.7rem;
+    cursor: pointer;
+}
+
+.header__left-button {
+    opacity: .5;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.header__left-logo {
+    display: block;
+    width: 160px;
+    height: auto;
+}
+
+.header__right {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.header__right-button {
+    cursor: pointer;
+    width: 80px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #000000;
+    transition: all .3s;
+}
+
+.header__right-profile {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: 3.5px solid white;
+    background-color: black;
+    overflow: hidden;
+}
+
+.header__right-img {
+    width: 3rem;
+    height: 3rem;
+    transform: translateY(8px);
+}
+
+/* aside ----------------------------------- */
+
+.aside--mobile {
+    display: none;
+}
+
+.aside {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    min-width: 300px;
+    height: 100vh;
+    height: 100dvh;
+    background-color: black;
+    border-right: .1px solid rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 45px;
+    overflow-y: auto;
+    z-index: 100;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, margin-left .3s ease, opacity .3s ease;
+    transform: translateX(0);
+    margin-left: 0;
+    opacity: 1;
+}
+
+.aside__top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aside__top-logo {
+    width: 60%;
+    height: auto;
+}
+
+.aside__top-arrow {
+    cursor: pointer;
+    width: 1.7rem;
+    height: 1.7rem;
+    opacity: .5;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.aside__search-input {
+    width: 100%;
+    height: 50px;
+    background: url(../IMAGES/icons/lupa.svg) no-repeat 13px center / 1.7rem 1.7rem, linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding-left: 50px;
+    padding-right: 15px;
+    font-family: 'Namu', sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.aside__home,
+.aside__library {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.aside__home-title,
+.aside__library-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    opacity: .5;
+    margin-bottom: 20px;
+}
+
+.aside-item {
+    cursor: pointer;
+    width: 240px;
+    height: 50px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    opacity: .5;
+    align-items: center;
+    justify-content: start;
+    margin-left: 10px;
+    padding-left: 10px;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.aside-item img {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.aside__item-text {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* main ----------------------------------- */
+
+.main {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px 20px 0 20px;
+    transition: none;
+
+}
+
+/* main__slider ----------------------------*/
+
+.main__slider {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+    transition: width .3s ease;
+}
+
+.main__slider.is-dragging {
+    cursor: grabbing;
+}
+
+.main__slider-track {
+    display: flex;
+    gap: calc(var(--sw, 100vw) * 0.01);
+    width: max-content;
+    will-change: transform;
+    transition: transform .3s cubic-bezier(.65, 0, .35, 1);
+}
+
+.main__slider-item {
+    flex: 0 0 calc(var(--sw, 100vw) * 0.6);
+    min-width: 750px;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: #0c0c0c;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    filter: brightness(0.55);
+    transition: filter 0.35s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Активный (центральный) баннер: полная яркость и подсветка */
+.main__slider-item.is-active,
+.main__slider.is-single .main__slider-item {
+    filter: brightness(1);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 255, 255, 0.08);
+}
+
+.main__slider-item.is-active:hover,
+.main__slider.is-single .main__slider-item:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 16px 55px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 255, 255, 0.12);
+}
+
+/* ==============================================================================;
+   ГЛАВНЫЙ БАННЕР ФИЛЬМА (HERO BANNER) — СТИЛИ ИЗ PROJECT_27
+   ============================================================================== */
+
+.main__item-poster {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* Фоновые постеры и видео */
+.main__item-poster-picture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.main__item-poster-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Виньетирование / затемнение фона для читаемости */
+.main__item-poster-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.3) 45%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.main__slider-item.is-active .main__item-poster-overlay,
+.main__slider.is-single .main__slider-item .main__item-poster-overlay {
+    opacity: 1;
+}
+
+/* Трейлер запускается строго при аппаратной поддержке наведения мыши (hover: hover) */
+@media (hover: hover) and (pointer: fine) {
+    .poster-video,
+    .main__item-poster video,
+    .main__item-poster iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        border-radius: inherit;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        pointer-events: none;
+    }
+
+    /* Нативное видео: заполняет 100% площади баннера с сохранением пропорций и центрированием */
+    .poster-video:not(iframe),
+    .main__item-poster video {
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Встроенные плееры (YouTube/Vimeo iframe): 
+       iframe не поддерживает object-fit: cover. Чтобы избежать черных полей плеера
+       при несовпадении пропорций, задаем соотношение 16:9 с адаптивным запасом по ширине/высоте
+       и центрированием; выступающие края обрезаются overflow: hidden у родителя */
+    iframe.poster-video,
+    .main__item-poster iframe {
+        border: 0;
+        outline: 0;
+        pointer-events: none;
+        min-width: 100%;
+        min-height: 100%;
+        width: 116%;
+        height: 116%;
+        aspect-ratio: 16 / 9;
+        transform: translate(-50%, -50%) scale(1.15);
+    }
+
+    .poster-video.is-visible {
+        opacity: 1;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .poster-video,
+    .main__item-poster video,
+    .main__item-poster iframe {
+        display: none !important;
+    }
+}
+
+/* Кнопки быстрого доступа («В избранное», «Нарезки») полностью удалены из баннера */
+.main__item-poster-header {
+    display: none !important;
+}
+
+/* Оверлей слева с контентом: логотип, метаданные, жанры, кнопки */
+.item-poster__wrapper {
+    position: relative;
+    z-index: 3;
+    width: 440px;
+    max-width: 55%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: end;
+    /* justify-content: space-around; */
+    /* backdrop-filter: blur(4px); */
+    /* -webkit-backdrop-filter: blur(4px); */
+    /* mask-image: linear-gradient(to right, black 0%, black calc(100% - 30px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 0%, black calc(100% - 30px), transparent 100%); */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-5%);
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+/* Метаданные видны ИСКЛЮЧИТЕЛЬНО на активном (центральном) баннере */
+.main__slider-item.is-active .item-poster__wrapper,
+.main__slider.is-single .main__slider-item .item-poster__wrapper {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* 1. Блок бренда: логотип фильма либо аккуратный текстовый заголовок */
+.main__item-poster-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.main__item-poster-logo {
+    max-width: 340px;
+    max-height: 110px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7));
+}
+
+.main__item-poster-logo--text {
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+}
+
+.mobile-rating {
+    display: none !important;
+}
+
+/* 2. Информационная плашка с метаданными */
+.main__item-poster-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.poster-info__item {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background-color: rgba(28, 27, 27, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+#quality,
+.poster-info__item--rating {
+    color: #44a844;
+    font-weight: 800;
+    border-color: rgba(68, 168, 68, 0.35);
+}
+
+.poster-genre__item {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #c1c1c1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.2;
+}
+
+/* 4. Блок с описанием фильма полностью скрыт по требованию */
+.main__item-poster-description {
+    display: none !important;
+}
+
+/* 5. Интерактивные элементы (кнопки «Смотреть» и «Подробнее») */
+.main__item-poster-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.poster-button__action,
+.poster-button__info,
+.main__item-poster-buttons button {
+    width: 155px;
+    height: 48px;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.poster-button__icon {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.poster-button__icon img,
+#poster-button-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Кнопка 1: «Смотреть» */
+.poster-button__action,
+#btn-act {
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.poster-button__action:hover,
+#btn-act:hover {
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+    transform: scale(1.08);
+}
+
+/* Кнопка 2: «Подробнее» */
+.poster-button__info,
+#btn-info {
+    background-color: rgba(42, 42, 42, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #c1c1c1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+
+.poster-button__info:hover,
+#btn-info:hover {
+    color: white;
+    background-color: rgba(55, 55, 55, 0.95);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+    transform: scale(1.08);
+}
+
+@keyframes buttonMove {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    50% {
+        opacity: .5;
+        transform: translateY(-25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность для средних десктопов и планшетов */
+@media (max-width: 1200px) {
+    .item-poster__wrapper {
+        width: 380px;
+        max-width: 60%;
+        padding: 20px;
+    }
+    .main__item-poster-logo {
+        max-width: 280px;
+        max-height: 90px;
+    }
+    .poster-button__action,
+    .poster-button__info,
+    .main__item-poster-buttons button {
+        width: 135px;
+        height: 44px;
+        font-size: 0.95rem;
+    }
+}
+
+.main__slider-btn {
+    position: absolute;
+    top: calc(50% - 22.5px);
+    z-index: 10;
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
+    background: rgb(0, 0, 0);
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .5;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.main__slider-btn--prev {
+    left: 1rem;
+}
+
+.main__slider-btn--next {
+    right: 1rem;
+}
+
+.main__slider-btn--prev-img,
+.main__slider-btn--next-img {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.main__slider-btn--next-img {
+    transform: rotate(180deg);
+}
+
+.main__slider.is-single .main__slider-btn {
+    display: none;
+}
+
+.main__slider.is-single {
+    cursor: default;
+}
+
+/* main__standart-card--track -----------------------------------*/
+
+.main__standart-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: start;
+    justify-content: start;
+    cursor: grab;
+}
+
+.main__standart-card--track.active {
+    cursor: grabbing;
+}
+
+.main__standart-card--item.is-dragging {
+    cursor: grabbing;
+}
+
+.main__standart-card--title {
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.main__standart-card--track {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 60px 40px;
+    margin: -55px 0;
+    transition: margin .3s ease, padding .3s ease;
+}
+
+.main__standart-card--item {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 14vw;
+    height: 21vw;
+    min-width: 230px;
+    min-height: 345px;
+    border-radius: 15px;
+    flex-shrink: 0;
+    border: 1px solid grey;
+    transform: scale(1);
+    transition: transform .3s ease, margin .3s ease, box-shadow .3s ease, z-index .3s ease, animCardHover .6s ease;
+
+    background: url(../IMAGES/error_items/error_items-img/bochflix-test-img-2.jpg) no-repeat center center / 100% 100%;
+}
+
+/* main__catalog--------------------------- */
+
+.main__catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.main__catalog-track {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.main__catalog-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: max-content;
+}
+
+.main__catalog-item {
+    align-self: flex-start;
+    width: max-content;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    padding: 0 16px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    transition: transform .3s ease;
+}
+
+
+.main__catalog-item--icon {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+/* main__other -----------------------------*/
+
+.main__other {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* animation ------------------------------ */
+.aside__top-arrow:hover,
+.header__left-button:hover,
+.header__center-item:hover,
+.main__slider-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.header__right-button:hover {
+    transform: scale(1.1);
+    background-color: #000000;
+    color: white;
+    border: 3.5px solid white;
+}
+
+.main__catalog-item:hover {
+    transform: scale(1.05);
+    outline: 1px solid white;
+}
+
+/* Кнопки на карточке фильма: по умолчанию скрыты для всех устройств */
+.main__card-btn--fav,
+.main__card-btn--watch {
+    display: none;
+}
+
+@media (hover: hover) {
+    .aside-item:hover {
+        opacity: 1;
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: scale(1.1);
+    }
+
+    .main__standart-card--item:hover {
+        transform: scale(1.1);
+        box-shadow: -20px 0 15px -5px rgba(0, 0, 0, 0.6), 20px 0 15px -5px rgba(0, 0, 0, 0.6);
+        z-index: 10;
+        animation: animCardHover .3s ease .7s forwards;
+    }
+
+    /* 1. Кнопка «Добавить в избранное»: правый верхний угол, 10px отступ, 1.7rem на 1.7rem */
+    .main__card-btn--fav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        border-radius: 15px;
+        background-color: rgba(28, 27, 27, 0.85);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        z-index: 5;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0s, visibility 0s;
+    }
+
+    .main__card-btn--fav-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+        display: block;
+        object-fit: contain;
+        pointer-events: none;
+    }
+
+    /* 2. Кнопка «Смотреть»: в самом низу карточки, отступы 10px слева, справа и снизу */
+    .main__card-btn--watch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        height: 38px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: #000000;
+        font-family: inherit;
+        font-weight: 900;
+        font-size: 0.95rem;
+        border: none;
+        cursor: pointer;
+        padding: 0 10px;
+        margin: 0;
+        z-index: 5;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0s, visibility 0s, transform .3s ease;
+    }
+
+    /* Плавное появление строго в момент второго увеличения (через 0.7 сек) */
+    .main__standart-card--item:hover .main__card-btn--fav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: opacity 0.3s ease 0.7s, visibility 0s 0.7s, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .main__standart-card--item:hover .main__card-btn--watch {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transition: opacity 0.3s ease 0.7s, visibility 0s 0.7s, transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    /* Микро-взаимодействия при наведении непосредственно на кнопки */
+    .main__card-btn--fav:hover {
+        background-color: rgba(45, 45, 45, 0.95);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: scale(1.08);
+    }
+
+    .main__card-btn--watch:hover {
+        background-color: #ebebeb;
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.65);
+    }
+
+    .main__card-btn--fav:active,
+    .main__card-btn--watch:active {
+        transform: scale(0.96);
+    }
+
+    /* Состояние добавления в избранное */
+    .main__card-btn--fav.is-favorite {
+        border-color: rgba(255, 64, 129, 0.7);
+        background-color: rgba(255, 64, 129, 0.35);
+    }
+
+    .main__card-btn--fav.is-favorite .main__card-btn--fav-icon {
+        filter: drop-shadow(0 0 5px #ff4081);
+    }
+
+    /* При перетаскивании трека кнопки принудительно скрываются */
+    .main__standart-card--item.is-dragging .main__card-btn--fav,
+    .main__standart-card--item.is-dragging .main__card-btn--watch {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: none !important;
+    }
+
+    .main__slider-item.is-active:hover .main__item-poster-bg {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes animAside {
+    0% {
+        transform: translateX(0);
+        display: flex;
+    }
+
+    100% {
+        transform: translateX(-101%);
+        display: none;
+    }
+}
+
+@keyframes animCardHover {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main__slider-track {
+        transition-duration: .01s;
+    }
+}
+
+/* testiki -------------------------- */
+
+#test {
+    /*aside -- desktop main icon*/
+    opacity: 1;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    /* transform: scale(1.1); */
+}

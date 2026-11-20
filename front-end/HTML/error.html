@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../IMAGES/my_first.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../STYLES/reset.css">
+    <link rel="stylesheet" href="../STYLES/font.css">
+    <link rel="stylesheet" href="../STYLES/error.css">
+    <title>BOCHFLIX — Ошибка подключения</title>
+</head>
+
+<body class="error-page-body">
+    <main class="bochflix-error-screen" id="bochflix-error-screen" role="alert" aria-live="assertive">
+        <div class="bochflix-error-content">
+            <div class="bochflix-error-image-wrapper">
+                <img src="../IMAGES/logos/bochflix_logo_error.webp" alt="404 BOCHFLIX" class="bochflix-error-image">
+            </div>
+            <p class="bochflix-error-message">Нет подключения к серверу. Повторите попытку позднее</p>
+            <button type="button" class="bochflix-error-reload-btn" onclick="location.reload()">Обновить страницу</button>
+        </div>
+    </main>
+
+    <script>
+        // При восстановлении интернет-соединения автоматически пробуем перезагрузить
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+
+</html>

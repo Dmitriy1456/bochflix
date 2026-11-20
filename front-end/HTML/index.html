@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../IMAGES/my_first.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../STYLES/reset.css">
+    <link rel="stylesheet" href="../STYLES/style.css">
+    <link rel="stylesheet" href="../STYLES/optimize.css">
+    <link rel="stylesheet" href="../STYLES/error.css">
+    <title>BOCHFLIX</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <script>
+            // Мгновенное применение сохранённого состояния меню до первого рендера страницы
+            try {
+                if (localStorage.getItem('bochflix_aside_collapsed') === 'true') {
+                    document.currentScript.parentElement.classList.add('wrapper--aside-collapsed');
+                }
+            } catch (e) {}
+        </script>
+        <aside class="aside">
+            <div class="aside__top">
+                <img src="../IMAGES/logos/kino-logo.png" alt="aside-logo" class="aside__top-logo">
+                <img src="../IMAGES/icons/arrow.svg" alt="aside-arrow" class="aside__top-arrow">
+            </div>
+            <div class="aside__search">
+                <input type="text" class="aside__search-input" placeholder="Поиск...">
+            </div>
+            <div class="aside__home">
+                <div class="aside__home-title">Навигация</div>
+                <div class="aside__home-item aside-item" id="test">
+                    <img src="../IMAGES/icons/home.svg" alt="aside-img" class="aside__home-item-img">
+                    <div class="aside__item-text">Главная</div>
+                </div>
+                <div class="aside__home-item aside-item">
+                    <img src="../IMAGES/icons/popular_line.svg" alt="aside-img" class="aside__home-item-img">
+                    <div class="aside__item-text">Новое & популярное</div>
+                </div>
+                <div class="aside__home-item aside-item">
+                    <img src="../IMAGES/icons/catalog_line.svg" alt="aside-img" class="aside__home-item-img">
+                    <div class="aside__item-text">Каталог</div>
+                </div>
+                <div class="aside__home-item aside-item">
+                    <img src="../IMAGES/icons/shorts_line.svg" alt="aside-img" class="aside__home-item-img">
+                    <div class="aside__item-text">Кино-shorts</div>
+                </div>
+                <div class="aside__home-item aside-item">
+                    <img src="../IMAGES/icons/favorites_line.svg" alt="aside-img" class="aside__home-item-img">
+                    <div class="aside__item-text">Избранное</div>
+                </div>
+            </div>
+            <div class="aside__library">
+                <div class="aside__library-title">Библиотека</div>
+                <div class="aside__library-item aside-item">
+                    <img src="../IMAGES/icons/continue-watching_line.svg" alt="aside-img"
+                        class="aside__library-item-img">
+                    <div class="aside__item-text">Продолжить просмотр</div>
+                </div>
+                <div class="aside__library-item aside-item">
+                    <img src="../IMAGES/icons/watch-laler_line.svg" alt="aside-img" class="aside__library-item-img">
+                    <div class="aside__item-text">Смотреть позже</div>
+                </div>
+                <div class="aside__library-item aside-item">
+                    <img src="../IMAGES/icons/account_line.svg" alt="aside-img" class="aside__library-item-img">
+                    <div class="aside__item-text">Мой профиль</div>
+                </div>
+            </div>
+        </aside>
+        <aside class="aside--mobile">
+            <div class="aside__main--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/home.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Главная</div>
+            </div>
+            <div class="aside__catalog--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/catalog_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Каталог</div>
+            </div>
+            <div class="aside__shorts--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/shorts_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Shorts</div>
+            </div>
+            <div class="aside__favorires--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/favorites_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Избранное</div>
+            </div>
+            <div class="aside__profile--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/account_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Профиль</div>
+            </div>
+        </aside>
+        <div class="header-main-wrapper">
+            <header class="header">
+                <div class="header__left">
+                    <img src="../IMAGES/icons/aside-icon.svg" alt="aside-button" class="header__left-button">
+                    <img src="../IMAGES/logos/kino-logo.png" alt="heder-logo" class="header__left-logo">
+                </div>
+                <div class="header__center">
+                    <div class="header__center-item">Главная</div>
+                    <div class="header__center-item">Каталог</div>
+                    <div class="header__center-item">Избранное</div>
+                    <div class="header__center-item">Кино-shorts</div>
+                    <img src="../IMAGES/icons/lupa_w.svg" alt="header-search" class="header__center-item-img">
+                </div>
+                <div class="header__right">
+                    <div class="header__right-button">Вход</div>
+                    <div class="header__right-profile">
+                        <img src="../IMAGES/icons/account_line.svg" alt="" class="header__right-img">
+                    </div>
+                </div>
+                <div class="header__left--mobile">
+                    <img src="../IMAGES/logos/kino-logo.png" alt="left-logo--mobile" class="header__left-logo--mobile">
+                </div>
+                <div class="header__right--mobile">
+                    <img src="../IMAGES/icons/lupa_w.svg" alt="right-search--mobile" class="header__right-icon--mobile"
+                        id="header-search--mobile">
+                </div>
+            </header>
+            <main class="main">
+                <section class="main__slider">
+                    <div class="main__slider-track">
+                        <!-- Готовый каркас главного промо-баннера фильма (на основе референса Project_27) -->
+                        <!-- <div class="main__slider-item main__item-poster is-active" data-pnr="QRY168" data-movie-url="/movie/video/QRY168.mp4" data-page-url="/movie/video/QRY168.mp4" data-video="/media/video/QRY168.mp4">
+                            <picture class="main__item-poster-picture">
+                                <source media="(max-width: 767px)" srcset="../IMAGES/posters/cruellla_poster_1.webp">
+                                <img class="main__item-poster-bg" src="../IMAGES/posters/cruella_poster_2.webp" alt="Круэлла">
+                            </picture>
+                            <div class="main__item-poster-overlay"></div>
+                            <div class="item-poster__wrapper">
+                                <div class="main__item-poster-brand">
+                                    <img src="../IMAGES/logos/cruella_logo.webp" alt="Круэлла" class="main__item-poster-logo">
+                                    <div class="poster-info__item poster-info__item--rating mobile-rating" id="quality">7.3</div>
+                                </div>
+                                <div class="main__item-poster-info">
+                                    <div class="poster-info__item poster-info__item--rating desktop-rating" id="quality">7.3</div>
+                                    <div class="poster-info__item poster-info__item--year">2021</div>
+                                    <div class="poster-info__item poster-info__item--duration">1 ч 52 мин</div>
+                                    <div class="poster-info__item poster-info__item--quality">FHD</div>
+                                </div>
+                                <div class="main__item-poster-genre">
+                                    <div class="poster-genre__item">Комедия</div>
+                                    <div class="poster-genre__item">Криминал</div>
+                                    <div class="poster-genre__item">Драма</div>
+                                </div>
+                                <div class="main__item-poster-buttons">
+                                    <button class="poster-button__action" type="button" id="btn-act">
+                                        <div class="poster-button__icon">
+                                            <img src="../IMAGES/icons/play_icon.svg" alt="Смотреть" id="poster-button-icon">
+                                        </div>
+                                        <div class="poster-button__text">Смотреть</div>
+                                    </button>
+                                    <button class="poster-button__info" type="button" id="btn-info">
+                                        <div class="poster-button__icon">
+                                            <img src="../IMAGES/icons/info_icon.svg" alt="Подробнее" id="poster-button-icon">
+                                        </div>
+                                        <div class="poster-button__text">Подробнее</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <button type="button" class="main__slider-btn main__slider-btn--prev">
+                        <img src="../IMAGES/icons/arrow.svg" alt="" class="main__slider-btn--prev-img">
+                    </button>
+                    <button type="button" class="main__slider-btn main__slider-btn--next">
+                        <img src="../IMAGES/icons/arrow.svg" alt="" class="main__slider-btn--next-img">
+                    </button>
+                </section>
+                <section class="main__catalog">
+                    <div class="main__catalog-track">
+                        <!-- Динамически заполняется через JS из GET /api/catalog/categories -->
+                    </div>
+                </section>
+                <section class="main__new-popular main__standart-card">
+                    <div class="main__standart-card--title">Новое и популярное</div>
+                    <div class="main__standart-card--track">
+                        <!-- Динамически заполняется фильмами со статусом 'Новое и популярное' -->
+                    </div>
+                </section>
+                <section class="main__other">
+                    <!-- Динамически подгружается порциями по 10 категорий через Infinite Scroll -->
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+<script src="../JS/script.js"></script>
+<script src="../JS/frontend_loader.js"></script>
+</html>

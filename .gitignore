@@ -1,0 +1,22 @@
+# Виртуальные окружения и кэш Python
+.venv/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Логи, PID и секреты
+.env
+.fastapi.pid
+uvicorn.log
+
+# Системные и IDE файлы
+.DS_Store
+.idea/
+.vscode/
+
+# Локальная база данных и тяжелые медиафайлы (видео и трейлеры)
+data/*.db
+media/video/
+media/trailers/

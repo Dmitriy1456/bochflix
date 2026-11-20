@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Namu";
+    font-weight: 400;
+    font-style: normal;
+    src: local("Namu"),
+            url(../FONTS/Namu/NANU-Pro.woff2) format('woff2'),
+            url(../FONTS/Namu/NANU-Pro.woff) format('woff'),
+            url(../FONTS/Namu/NANU-Pro.eot) format('eot');
+    font-display: fallback;
+}

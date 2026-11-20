@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimum-scale=1.0">
+    <link rel="shortcut icon" href="../IMAGES/my_first.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../STYLES/reset.css">
+    <link rel="stylesheet" href="../STYLES/informaton.css">
+    <link rel="stylesheet" href="../STYLES/information-optimize.css">
+    <title>Information</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__left">
+            <img src="../IMAGES/icons/arrow.svg" alt="aside-button" class="header__left-button icon-information">
+            <img src="../IMAGES/logos/kino-logo.png" alt="heder-logo" class="header__left-logo">
+            <div class="header__left-item">Каталог</div>
+            <div class="header__left-item">Избранное</div>
+            <div class="header__left-item">Кино-shorts</div>
+        </div>
+        <div class="header__right">
+            <div class="header__right-button">Вход</div>
+            <div class="header__right-profile">
+                <img src="../IMAGES/icons/account_line.svg" alt="header-right-img" class="header__right-img icon-information">
+            </div>
+        </div>
+        <div class="header--mobile">
+            <img src="../IMAGES/icons/arrow.svg" alt="aside-button" class="header__button--mobile icon-information">
+            <img src="../IMAGES/logos/kino-logo.png" alt="left-logo--mobile" class="header__logo--mobile">
+        </div>
+    </header>
+    <aside class="aside--mobile">
+            <div class="aside__main--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/home_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Главная</div>
+            </div>
+            <div class="aside__catalog--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/catalog_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Каталог</div>
+            </div>
+            <div class="aside__shorts--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/shorts_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Shorts</div>
+            </div>
+            <div class="aside__favorires--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/favorites_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Избранное</div>
+            </div>
+            <div class="aside__profile--mobile aside-item--mobile">
+                <img src="../IMAGES/icons/account_line.svg" alt="aside-icon" class="aside__icon--mobile">
+                <div class="aside__title--mobile">Профиль</div>
+            </div>
+    </aside>
+    <main class="main">
+        <div class="main__top">
+            <div class="main__top-data">
+                <div class="main__top-data--logo"></div>
+                <div class="main__top-data--info">
+                    <div class="main__info--rating main__info--item">10.0</div>
+                    <div class="main__info--year main__info--item">2026</div>
+                    <div class="main__info--duration main__info--item">1 ч 33 мин</div>
+                    <div class="main__info--quality main__info--item">FHD</div>
+                </div>
+                <div class="main__top-data--description">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Он реторический собрал заголовок языком переулка большого даль, парадигматическая запятых себя маленькая безорфографичный необходимыми, о путь напоивший правилами, диких своего.</div>
+                <div class="main__top-data--buttons">
+                    <div class="main__top-btn--watch">
+                        <img src="../IMAGES/icons/play_icon.svg" alt="Смотреть" id="poster-play-icon" class="icon-information">
+                        Смотреть
+                    </div>
+                    <div class="main__top-btn--trailer">
+                        <img src="../IMAGES/icons/trailer.svg" alt="Смотреть" id="poster-trailer-icon" class="icon-information">
+                        Трейлер
+                    </div>
+                    <div class="main__top-btn--favorites">
+                        <img src="../IMAGES/icons/favorites_line.svg" alt="poster-favorites-icon" id="poster-favorites-icon" class="icon-information">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main__wrapper">
+            <div class="main__top--mobile">
+                <div class="main__top--mobile-play">
+                    <img src="../IMAGES/icons/play_icon.svg" alt="Смотреть" id="poster-play-icon" class="icon-information--mobile">
+                    Смотреть
+                </div>
+                <div class="main__top--mobile-buttons">
+                    <div class="main__top--mobile-trailer">
+                        <img src="../IMAGES/icons/trailer.svg" alt="Смотреть" id="poster-trailer-icon" class="icon-information--mobile">
+                        Трейлер
+                    </div>
+                    <div class="main__top--mobile-favorites">
+                        <img src="../IMAGES/icons/favorites_line.svg" alt="poster-favorites-icon" id="poster-favorites-icon" class="icon-information--mobile">
+                        В избранное
+                    </div>
+                </div>
+            </div>
+            <div class="main__data--mobile">
+                    <div class="main__info--rating main__info--item"></div>
+                    <div class="main__info--year main__info--item"></div>
+                    <div class="main__info--duration main__info--item"></div>
+                    <div class="main__info--quality main__info--item"></div>
+                </div>
+            <div class="main__description">
+                <div class="main__description--item">
+                    <div class="main__description--title">Описание</div>
+                    <div class="main__description--text"></div>
+                </div>
+                <div class="main__description--item">
+                    <div class="main__description--title">Жанры</div>
+                    <div class="main__description--text"></div>
+                </div>
+                <div class="main__description--item" id="plot-text">
+                    <div class="main__description--title">Сюжет</div>
+                    <div class="main__description--text"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../JS/information.js"></script>
+</body>
+</html>

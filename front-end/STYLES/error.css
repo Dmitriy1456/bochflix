@@ -1,0 +1,145 @@
+/* ==============================================================================
+ * BOCHFLIX — CONNECTION ERROR SCREEN STYLES (error.css)
+ * ============================================================================== */
+
+body.error-page-body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Namu', sans-serif;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Полноэкранный контейнер для страницы ошибки или всплывающего оверлея */
+.bochflix-error-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.bochflix-error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Адаптивная обертка и изображение ошибки 404 BOCHFLIX */
+.bochflix-error-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bochflix-error-image {
+    width: 100%;
+    max-width: min(840px, 90vw);
+    max-height: 40vh;
+    max-height: 40dvh;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Текст ошибки под изображением */
+.bochflix-error-message {
+    margin: 32px 0 24px 0;
+    color: #ffffff;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    font-weight: 600;
+    line-height: 1.45;
+    text-align: center;
+    letter-spacing: -0.01em;
+    max-width: 560px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: 'Namu', sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Стилизация белой кнопки по единому стандарту проекта */
+.bochflix-error-reload-btn {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 1.05rem;
+    font-family: 'Namu', sans-serif;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 34px;
+    min-width: 210px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bochflix-error-reload-btn:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+    transform: scale(1.05);
+}
+
+.bochflix-error-reload-btn:active {
+    transform: scale(0.97);
+}
+
+/* Адаптивность для планшетов и мобильных устройств */
+@media (max-width: 767px) {
+    .bochflix-error-screen {
+        padding: 16px;
+    }
+
+    .bochflix-error-image {
+        max-width: 92vw;
+        max-height: 32vh;
+        max-height: 32dvh;
+    }
+
+    .bochflix-error-message {
+        margin: 22px 0 20px 0;
+        font-size: 1.05rem;
+        line-height: 1.4;
+    }
+
+    .bochflix-error-reload-btn {
+        height: 44px;
+        padding: 0 24px;
+        font-size: 0.95rem;
+        min-width: 180px;
+    }
+}
